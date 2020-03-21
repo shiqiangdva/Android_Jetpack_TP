@@ -49,6 +49,7 @@ public class FixFragmentNavigator extends FragmentNavigator {
         if (className.charAt(0) == '.') {
             className = mContext.getPackageName() + className;
         }
+        // 这里每次都会实例化一个Fragment对象, 注释掉进行重用
         //final Fragment frag = instantiateFragment(mContext, mManager,
         //       className, args);
         //frag.setArguments(args);
@@ -82,6 +83,7 @@ public class FixFragmentNavigator extends FragmentNavigator {
             frag.setArguments(args);
             ft.add(mContainerId, frag, tag);
         }
+        // 这里每次都会实例化一个Fragment对象, 注释掉进行重用
         //ft.replace(mContainerId, frag);
         ft.setPrimaryNavigationFragment(frag);
 
